@@ -1,0 +1,23 @@
+def dydx(x, y):
+    deriv = x**3 + 2 * y
+    return deriv
+
+def euler(x0, y0, h, xf):
+    x = x0
+    y = y0
+    while x < xf:
+        y += h * dydx(x, y)
+        x += h
+    return y
+
+# starting x value
+x0 = 1
+# starting y value
+y0 = 2
+# step
+h = .1
+# final x value
+xf = 3
+
+est = euler(x0, y0, h, xf)
+print(f"Estimated value of y at x = {xf} is {est:.4f}")
